@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Material & Environment Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <p class="tag">MATERIAL SCIENCE • ENVIRONMENT</p>
+
+            <h1>
+                Material &<br>
+                Environment Explorer
+            </h1>
+
+            <p class="intro">
+                สำรวจวัสดุรอบตัวเรา
+                เรียนรู้คุณสมบัติ การใช้งาน
+                และผลกระทบต่อสิ่งแวดล้อม
+            </p>
+
+            <button onclick="scrollToMaterials()">
+                🔬 เริ่มสำรวจวัสดุ
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- About -->
+
+        <section class="section">
+
+            <p class="section-tag">
+                ABOUT THIS PROJECT
+            </p>
+
+            <h2>
+                วัสดุที่เราใช้ในชีวิตประจำวัน
+            </h2>
+
+            <p class="text">
+                วัสดุเป็นส่วนหนึ่งของชีวิตประจำวัน
+                ตั้งแต่ขวดน้ำ โทรศัพท์ ไปจนถึงอาคาร
+                วัสดุแต่ละชนิดมีคุณสมบัติและการใช้งานที่แตกต่างกัน
+                รวมถึงมีผลกระทบต่อสิ่งแวดล้อมแตกต่างกันด้วย
+            </p>
+
+        </section>
+
+
+        <!-- Materials -->
+
+        <section id="materials" class="section">
+
+            <p class="section-tag">
+                EXPLORE MATERIALS
+            </p>
+
+            <h2>
+                🔬 สำรวจวัสดุ
+            </h2>
+
+            <p class="text">
+                เลือกวัสดุเพื่อเรียนรู้ข้อมูลพื้นฐาน
+            </p>
+
+
+            <div class="material-grid">
+
+                <div class="material-card"
+                    onclick="showMaterial('PET')">
+
+                    <div class="material-icon">
+                        🥤
+                    </div>
+
+                    <h3>PET</h3>
+
+                    <p>
+                        พลาสติกที่พบได้บ่อย
+                        ในขวดเครื่องดื่ม
+                    </p>
+
+                </div>
+
+
+                <div class="material-card"
+                    onclick="showMaterial('PLA')">
+
+                    <div class="material-icon">
+                        🌱
+                    </div>
+
+                    <h3>PLA</h3>
+
+                    <p>
+                        พลาสติกชีวภาพ
+                        ที่ผลิตจากวัตถุดิบจากพืช
+                    </p>
+
+                </div>
+
+
+                <div class="material-card"
+                    onclick="showMaterial('Glass')">
+
+                    <div class="material-icon">
+                        🫙
+                    </div>
+
+                    <h3>Glass</h3>
+
+                    <p>
+                        วัสดุแข็ง โปร่งใส
+                        และสามารถนำกลับมาใช้ใหม่ได้
+                    </p>
+
+                </div>
+
+
+                <div class="material-card"
+                    onclick="showMaterial('Aluminium')">
+
+                    <div class="material-icon">
+                        🥫
+                    </div>
+
+                    <h3>Aluminium</h3>
+
+                    <p>
+                        โลหะน้ำหนักเบา
+                        และสามารถรีไซเคิลได้
+                    </p>
+
+                </div>
+
+
+                <div class="material-card"
+                    onclick="showMaterial('Ceramic')">
+
+                    <div class="material-icon">
+                        🏺
+                    </div>
+
+                    <h3>Ceramic</h3>
+
+                    <p>
+                        วัสดุแข็ง ทนความร้อน
+                        และทนต่อการสึกหรอ
+                    </p>
+
+                </div>
+
+
+                <div class="material-card"
+                    onclick="showMaterial('Graphene')">
+
+                    <div class="material-icon">
+                        ⚫
+                    </div>
+
+                    <h3>Graphene</h3>
+
+                    <p>
+                        วัสดุคาร์บอนที่มีโครงสร้าง
+                        ระดับนาโน
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Material information -->
+
+            <div id="materialInfo" class="info-box hidden">
+
+                <button
+                    class="close-button"
+                    onclick="closeMaterial()">
+                    ✕
+                </button>
+<img
+                    id="materialImage"
+                    class="material-image"
+                    src=""
+                    alt="ภาพวัสดุ">
+
+                <h2 id="materialName">
+                    Material
+                </h2>
+                 <p id="materialDescription"></p>
+                
+                <div class="highlight-box">
+
+    <h3>🔬 จุดเด่นที่น่าสนใจ</h3>
+
+    <p id="materialHighlight"></p>
+
+</div>
+
+        
+
+                <div class="info-list">
+
+                    <p>
+                        <strong>ประเภทวัสดุ</strong>
+                        <span id="materialType"></span>
+                    </p>
+
+                    <p>
+                        <strong>คุณสมบัติ</strong>
+                        <span id="materialProperties"></span>
+                    </p>
+
+                    <p>
+                        <strong>การใช้งาน</strong>
+                        <span id="materialUses"></span>
+                    </p>
+
+                    <p>
+                        <strong>สิ่งแวดล้อม</strong>
+                        <span id="materialEnvironment"></span>
+                    </p>
+                    <p>
+    <strong>ชื่อเต็ม</strong>
+    <span id="materialFullName"></span>
+</p>
+
+<p>
+    <strong>โครงสร้าง</strong>
+    <span id="materialStructure"></span>
+</p>
+
+<p>
+    <strong>ข้อจำกัด</strong>
+    <span id="materialLimitations"></span>
+</p>
+
+<p>
+    <strong>อนาคตของวัสดุ</strong>
+    <span id="materialFuture"></span>
+</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Environment -->
+
+        <section class="environment-section">
+
+            <div class="section">
+
+                <p class="section-tag">
+                    ENVIRONMENT
+                </p>
+
+                <h2>
+                    ♻️ วัสดุกับสิ่งแวดล้อม
+                </h2>
+
+                <p class="text">
+                    การเลือกใช้วัสดุอย่างเหมาะสม
+                    สามารถช่วยลดการใช้ทรัพยากร
+                    และลดปริมาณขยะได้
+                </p>
+
+
+                <div class="environment-grid">
+
+                    <div class="environment-card">
+
+                        <span>♻️</span>
+
+                        <h3>
+                            Reuse
+                        </h3>
+
+                        <p>
+                            นำวัสดุกลับมาใช้ซ้ำ
+                            เพื่อลดการสร้างขยะ
+                        </p>
+
+                    </div>
+
+
+                    <div class="environment-card">
+
+                        <span>🔄</span>
+
+                        <h3>
+                            Recycle
+                        </h3>
+
+                        <p>
+                            นำวัสดุที่ใช้แล้ว
+                            เข้าสู่กระบวนการรีไซเคิล
+                        </p>
+
+                    </div>
+
+
+                    <div class="environment-card">
+
+                        <span>🌱</span>
+
+                        <h3>
+                            Sustainable Materials
+                        </h3>
+
+                        <p>
+                            เลือกวัสดุโดยคำนึงถึง
+                            ผลกระทบต่อสิ่งแวดล้อม
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Nano -->
+
+        <section class="section">
+
+            <p class="section-tag">
+                NANOMATERIAL
+            </p>
+
+            <h2>
+                🔬 นาโนคืออะไร?
+            </h2>
+
+            <p class="text">
+                นาโนเมตรเป็นหน่วยความยาวขนาดเล็กมาก
+                โดย 1 นาโนเมตรเท่ากับ 1 ในพันล้านเมตร
+                วัสดุที่มีโครงสร้างในระดับนาโน
+                อาจมีสมบัติแตกต่างจากวัสดุในขนาดปกติ
+            </p>
+
+
+            <div class="nano-box">
+
+                <div>
+                    <span class="nano-number">
+                        1 nm
+                    </span>
+
+                    <p>
+                        = 0.000000001 เมตร
+                    </p>
+                </div>
+
+
+                <div>
+                    <span class="nano-number">
+                        1–100 nm
+                    </span>
+
+                    <p>
+                        ช่วงขนาดที่มักใช้กล่าวถึง
+                        วัสดุนาโน
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+       <!-- Compare Materials -->
+
+<section class="section compare-section">
+
+    <p class="section-tag">
+        COMPARE MATERIALS
+    </p>
+
+    <h2>
+        ⚖️ เปรียบเทียบวัสดุ
+    </h2>
+
+    <p class="text">
+        เลือกวัสดุ 2 ชนิดเพื่อเปรียบเทียบคุณสมบัติ
+        การใช้งาน และข้อมูลด้านสิ่งแวดล้อม
+    </p>
+
+    <div class="compare-select">
+
+        <div>
+            <label for="material1">
+                วัสดุที่ 1
+            </label>
+
+            <select id="material1">
+                <option value="PET">PET</option>
+                <option value="PLA">PLA</option>
+                <option value="Glass">Glass</option>
+                <option value="Aluminium">Aluminium</option>
+                <option value="Ceramic">Ceramic</option>
+                <option value="Graphene">Graphene</option>
+            </select>
+        </div>
+
+
+        <div class="vs">
+            VS
+        </div>
+
+
+        <div>
+            <label for="material2">
+                วัสดุที่ 2
+            </label>
+
+            <select id="material2">
+                <option value="PLA">PLA</option>
+                <option value="PET">PET</option>
+                <option value="Glass">Glass</option>
+                <option value="Aluminium">Aluminium</option>
+                <option value="Ceramic">Ceramic</option>
+                <option value="Graphene">Graphene</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <button
+        class="compare-button"
+        onclick="compareMaterials()">
+
+        ⚖️ เปรียบเทียบ
+
+    </button>
+
+
+    <div
+    id="comparisonResult"
+    class="comparison-result hidden">
+
+    <table class="comparison-table">
+
+        <thead>
+            <tr>
+                <th>หัวข้อ</th>
+                <th id="compareName1">PET</th>
+                <th id="compareName2">PLA</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <th>ประเภท</th>
+                <td id="compareType1"></td>
+                <td id="compareType2"></td>
+            </tr>
+
+            <tr>
+                <th>คุณสมบัติ</th>
+                <td id="compareProperties1"></td>
+                <td id="compareProperties2"></td>
+            </tr>
+
+            <tr>
+                <th>การใช้งาน</th>
+                <td id="compareUses1"></td>
+                <td id="compareUses2"></td>
+            </tr>
+
+            <tr>
+                <th>สิ่งแวดล้อม</th>
+                <td id="compareEnvironment1"></td>
+                <td id="compareEnvironment2"></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</section> <!-- Project -->
+
+        <section class="project-section">
+
+            <div class="section">
+
+                <p class="section-tag">
+                    MY PROJECT
+                </p>
+
+                <h2>
+                    💡 ทำไมจึงสร้างเว็บไซต์นี้?
+                </h2>
+
+                <p class="text">
+                    เว็บไซต์นี้จัดทำขึ้นเพื่อรวบรวมความรู้พื้นฐาน
+                    เกี่ยวกับวัสดุ วัสดุนาโน และสิ่งแวดล้อม
+                    ให้อยู่ในรูปแบบที่เข้าใจง่ายและเข้าถึงได้ผ่านโทรศัพท์มือถือ
+                </p>
+
+                <div class="project-points">
+
+                    <div>
+                        🔬
+                        <strong>
+                            เรียนรู้วัสดุ
+                        </strong>
+                    </div>
+
+                    <div>
+                        ♻️
+                        <strong>
+                            เข้าใจผลกระทบต่อสิ่งแวดล้อม
+                        </strong>
+                    </div>
+
+                    <div>
+                        💻
+                        <strong>
+                            ประยุกต์ใช้เทคโนโลยี
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Material & Environment Explorer
+        </p>
+
+        <p>
+            Science • Materials • Environment • Technology
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
