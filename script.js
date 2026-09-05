@@ -172,7 +172,7 @@
 
     Graphene: {
     name: "Graphene",
-    image: "/graphene.png",
+    image: "graphene.png",
 
     fullName: "กราฟีน (Graphene)",
 
